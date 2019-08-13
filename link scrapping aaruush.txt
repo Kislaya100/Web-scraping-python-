@@ -1,0 +1,11 @@
+import bs4
+import requests
+
+url = "https://aaruush.net/#"
+
+data = requests.get(url)
+soup = bs4.BeautifulSoup(data.text, 'html.parser')
+
+for links in soup.find_all('a'):
+    link = links.get('href')
+    print(link)

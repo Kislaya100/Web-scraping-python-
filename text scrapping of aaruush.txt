@@ -1,0 +1,10 @@
+import bs4
+import requests
+
+url = "https://aaruush.net/#"
+
+data = requests.get(url)
+soup = bs4.BeautifulSoup(data.text, 'html.parser')
+
+for para in soup.find_all('a'):
+print(para.text)
